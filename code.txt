@@ -1,0 +1,26 @@
+pragma solidity ^0.8.17; 
+
+
+
+contract Crypto_Media_Group {
+
+
+    mapping(address => string) public Name_of_the_Reporter;
+    mapping(address => mapping(uint256 => string)) public CryptoNews;
+    mapping(address => uint256) public InformationNumber;
+
+
+    function Name (string memory _Name) external {
+
+         Name_of_the_Reporter[msg.sender] = _Name;
+
+    }
+
+    function NewInformation (string memory _Text) external {
+
+         InformationNumber[msg.sender] = InformationNumber[msg.sender] + 1;
+         CryptoNews[msg.sender][InformationNumber[msg.sender]] = _Text;
+
+    }
+
+}
